@@ -1,0 +1,48 @@
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+target/
+*.class
+
+# Node.js
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Cobertura de testes (vitest --coverage)
+coverage/
+
+# Dumps binários do PostgreSQL (pg_dump -Fc). Dumps em .sql não são ignorados
+# porque as migrations também são .sql: nunca versionar um dump do banco local.
+*.dump
+
+# Instruções e configurações locais de ferramentas de desenvolvimento (não publicar)
+CLAUDE.md
+.claude/
+
+# Dados reais de NF-e
+test-data/nfe/*
+!test-data/nfe/.gitkeep
+
+# Playwright (resultados, relatórios, traces e capturas de tela dos testes E2E)
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/

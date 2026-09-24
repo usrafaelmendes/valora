@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="cor" gradientUnits="userSpaceOnUse" x1="360" y1="520" x2="700" y2="700">
+      <stop offset="0" stop-color="#FF6B00"/>
+      <stop offset="0.30" stop-color="#FF5A10"/>
+      <stop offset="0.52" stop-color="#C4406E"/>
+      <stop offset="0.72" stop-color="#3650C2"/>
+      <stop offset="1" stop-color="#0A3C91"/>
+    </linearGradient>
+    <clipPath id="tras"><path d="M520 900 C560 740 640 470 752 360 C800 314 850 300 900 300 L940 300 C956 300 962 314 952 326 C860 430 770 640 712 810 C686 884 632 922 570 918 Z"/></clipPath>
+  </defs>
+  <path d="M520 900 C560 740 640 470 752 360 C800 314 850 300 900 300 L940 300 C956 300 962 314 952 326 C860 430 770 640 712 810 C686 884 632 922 570 918 Z" fill="url(#cor)"/>
+  <g clip-path="url(#tras)"><path transform="translate(30 4)" d="M92 176 C86 160 96 150 112 150 L360 150 C470 150 540 222 568 330 C600 470 612 690 604 820 C600 890 560 918 520 910 C488 903 470 884 458 858 C380 690 250 400 92 176 Z" fill="#051A40" opacity="0.32"/></g>
+  <path d="M92 176 C86 160 96 150 112 150 L360 150 C470 150 540 222 568 330 C600 470 612 690 604 820 C600 890 560 918 520 910 C488 903 470 884 458 858 C380 690 250 400 92 176 Z" fill="url(#cor)"/>
+</svg>

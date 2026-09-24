@@ -1,0 +1,32 @@
+.pagina {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--mantine-spacing-md);
+  /* Faixa superior na cor do cabeçalho do sistema, dando continuidade visual após o login. */
+  background: linear-gradient(
+    to bottom,
+    var(--cp-cabecalho) 0,
+    var(--cp-cabecalho) 38dvh,
+    var(--mantine-color-body) 38dvh
+  );
+}
+
+.painel {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--mantine-shadow-md);
+}
+
+/* Símbolo do Valora ao lado do nome (proporção original da logo). */
+.logo {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+.marca {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--mantine-primary-color-filled);
+}

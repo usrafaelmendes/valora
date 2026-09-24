@@ -1,0 +1,10 @@
+dist
+coverage
+package-lock.json
+test-results
+playwright-report
+# Saída de compilação e esquemas gerados do Tauri (Rust)
+src-tauri/target
+src-tauri/gen
+# Runtimes do app distribuído (scripts/preparar-runtime.sh), ignorados pelo Git
+src-tauri/runtime

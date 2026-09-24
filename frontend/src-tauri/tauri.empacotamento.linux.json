@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "mainBinaryName": "valora",
+  "bundle": {
+    "active": true,
+    "targets": ["deb"],
+    "resources": {
+      "runtime/linux-x86_64": "runtime"
+    }
+  }
+}

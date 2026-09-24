@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FIXTURE DE TESTE SINTÉTICA. Não é uma NF-e real.
+  Segue a estrutura do layout 4.00 (nfeProc), mas todos os dados são fictícios:
+  CNPJs de exemplo, nomes, produtos, chave de acesso e valores. A assinatura digital foi omitida.
+  Itens: 1) GTIN válido, grupos ICMS00/IPITrib/PISAliq/COFINSAliq;
+         2) "SEM GTIN", grupos ICMS40/IPINT/PISNT/COFINSNT (sem base, alíquota e valor);
+         3) GTIN válido, sem grupo IPI.
+-->
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe>
+    <infNFe Id="NFe41260911222333000181550010000012341876543218" versao="4.00">
+      <ide>
+        <cUF>41</cUF>
+        <cNF>87654321</cNF>
+        <natOp>Venda de mercadoria (teste)</natOp>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>1234</nNF>
+        <dhEmi>2026-09-10T14:30:00-03:00</dhEmi>
+        <tpNF>1</tpNF>
+        <idDest>2</idDest>
+        <tpAmb>2</tpAmb>
+        <finNFe>1</finNFe>
+      </ide>
+      <emit>
+        <CNPJ>11222333000181</CNPJ>
+        <xNome>FORNECEDOR TESTE LTDA</xNome>
+        <enderEmit>
+          <xLgr>Rua de Teste</xLgr>
+          <nro>1</nro>
+          <xMun>CIDADE TESTE</xMun>
+          <UF>PR</UF>
+        </enderEmit>
+        <IE>0000000000</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CNPJ>11444777000161</CNPJ>
+        <xNome>EMPRESA DESTINATARIA TESTE LTDA</xNome>
+        <enderDest>
+          <xLgr>Avenida de Teste</xLgr>
+          <nro>2</nro>
+          <xMun>CIDADE TESTE</xMun>
+          <UF>GO</UF>
+        </enderDest>
+        <indIEDest>1</indIEDest>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>TST-001</cProd>
+          <cEAN>4006381333931</cEAN>
+          <xProd>PRODUTO TESTE X</xProd>
+          <NCM>99999901</NCM>
+          <CFOP>6102</CFOP>
+          <uCom>UN</uCom>
+          <qCom>2.0000</qCom>
+          <vUnCom>100.5000000000</vUnCom>
+          <vProd>201.00</vProd>
+          <cEANTrib>4006381333931</cEANTrib>
+          <uTrib>UN</uTrib>
+          <qTrib>2.0000</qTrib>
+          <vUnTrib>100.5000000000</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS00>
+              <orig>1</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>201.00</vBC>
+              <pICMS>7.00</pICMS>
+              <vICMS>14.07</vICMS>
+            </ICMS00>
+          </ICMS>
+          <IPI>
+            <cEnq>999</cEnq>
+            <IPITrib>
+              <CST>50</CST>
+              <vBC>201.00</vBC>
+              <pIPI>10.0000</pIPI>
+              <vIPI>20.10</vIPI>
+            </IPITrib>
+          </IPI>
+          <PIS>
+            <PISAliq>
+              <CST>01</CST>
+              <vBC>201.00</vBC>
+              <pPIS>1.3500</pPIS>
+              <vPIS>2.71</vPIS>
+            </PISAliq>
+          </PIS>
+          <COFINS>
+            <COFINSAliq>
+              <CST>01</CST>
+              <vBC>201.00</vBC>
+              <pCOFINS>5.0000</pCOFINS>
+              <vCOFINS>10.05</vCOFINS>
+            </COFINSAliq>
+          </COFINS>
+        </imposto>
+      </det>
+      <det nItem="2">
+        <prod>
+          <cProd>TST-002</cProd>
+          <cEAN>SEM GTIN</cEAN>
+          <xProd>ITEM DE TESTE SEM CODIGO DE BARRAS</xProd>
+          <NCM>99999902</NCM>
+          <CFOP>6102</CFOP>
+          <uCom>PC</uCom>
+          <qCom>10</qCom>
+          <vUnCom>3.5</vUnCom>
+          <vProd>35.00</vProd>
+          <cEANTrib>SEM GTIN</cEANTrib>
+          <uTrib>PC</uTrib>
+          <qTrib>10</qTrib>
+          <vUnTrib>3.5</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS40>
+              <orig>0</orig>
+              <CST>41</CST>
+            </ICMS40>
+          </ICMS>
+          <IPI>
+            <cEnq>999</cEnq>
+            <IPINT>
+              <CST>53</CST>
+            </IPINT>
+          </IPI>
+          <PIS>
+            <PISNT>
+              <CST>06</CST>
+            </PISNT>
+          </PIS>
+          <COFINS>
+            <COFINSNT>
+              <CST>06</CST>
+            </COFINSNT>
+          </COFINS>
+        </imposto>
+      </det>
+      <det nItem="3">
+        <prod>
+          <cProd>TST-003</cProd>
+          <cEAN>7891000315507</cEAN>
+          <xProd>PRODUTO TESTE B</xProd>
+          <NCM>99999903</NCM>
+          <CFOP>6102</CFOP>
+          <uCom>UN</uCom>
+          <qCom>1.0000</qCom>
+          <vUnCom>150.0000000000</vUnCom>
+          <vProd>150.00</vProd>
+          <cEANTrib>7891000315507</cEANTrib>
+          <uTrib>UN</uTrib>
+          <qTrib>1.0000</qTrib>
+          <vUnTrib>150.0000000000</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>150.00</vBC>
+              <pICMS>7.00</pICMS>
+              <vICMS>10.50</vICMS>
+            </ICMS00>
+          </ICMS>
+          <PIS>
+            <PISAliq>
+              <CST>01</CST>
+              <vBC>150.00</vBC>
+              <pPIS>1.3500</pPIS>
+              <vPIS>2.03</vPIS>
+            </PISAliq>
+          </PIS>
+          <COFINS>
+            <COFINSAliq>
+              <CST>01</CST>
+              <vBC>150.00</vBC>
+              <pCOFINS>5.0000</pCOFINS>
+              <vCOFINS>7.50</vCOFINS>
+            </COFINSAliq>
+          </COFINS>
+        </imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>351.00</vBC>
+          <vICMS>24.57</vICMS>
+          <vProd>386.00</vProd>
+          <vFrete>10.00</vFrete>
+          <vSeg>0.00</vSeg>
+          <vDesc>5.00</vDesc>
+          <vIPI>20.10</vIPI>
+          <vPIS>4.74</vPIS>
+          <vCOFINS>17.55</vCOFINS>
+          <vOutro>0.00</vOutro>
+          <vNF>411.10</vNF>
+        </ICMSTot>
+      </total>
+    </infNFe>
+  </NFe>
+  <protNFe versao="4.00">
+    <infProt>
+      <tpAmb>2</tpAmb>
+      <chNFe>41260911222333000181550010000012341876543218</chNFe>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>

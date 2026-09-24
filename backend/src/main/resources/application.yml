@@ -1,0 +1,50 @@
+# Backend local: por padrão aceita conexões somente da própria máquina (loopback).
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+
+spring:
+  application:
+    name: compara-precos
+
+  # Lê as variáveis do .env da raiz do projeto (o mesmo usado pelo compose.yaml).
+  # Os dois caminhos cobrem a execução a partir de backend/ ou da raiz.
+  # Variáveis de ambiente do sistema continuam tendo prioridade.
+  config:
+    import:
+      - optional:file:../.env[.properties]
+      - optional:file:.env[.properties]
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      # O schema é controlado exclusivamente pelas migrations do Flyway.
+      ddl-auto: validate
+
+  flyway:
+    locations: classpath:db/migration
+
+  # Upload do XML de NF-e: o layout limita a mensagem a 500 KB; 1 MB deixa margem.
+  # Arquivos maiores são rejeitados com 413 antes de chegar ao controller.
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+
+app:
+  jwt:
+    # Obrigatório: pelo menos 32 caracteres. Nunca versionar o valor real.
+    secret: ${JWT_SECRET:}
+    expiracao: ${JWT_EXPIRACAO:8h}
+
+  cors:
+    # Origens que podem chamar a API diretamente (CORS), separadas por vírgula, sem curinga:
+    # - tauri://localhost e http://tauri.localhost: frontend desktop (Tauri) em build de produção
+    #   (Linux/macOS e Windows, respectivamente);
+    # - http://localhost:5173: Vite, usado pelo `npm run tauri dev` e pela versão web. Na versão web
+    #   o proxy /api mantém a mesma origem para o navegador, mas repassa o cabeçalho Origin.
+    origens-permitidas: ${CORS_ORIGENS_PERMITIDAS:tauri://localhost,http://tauri.localhost,http://localhost:5173}
