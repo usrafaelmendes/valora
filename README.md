@@ -7,7 +7,7 @@ operation, according to rules configured by the administrator.
 It runs as a local desktop application on Windows and Linux, and it can also run as a web
 application during development. Everything runs on the user's machine, with no external services.
 
-> **Version:** 0.1.0 (initial MVP release)
+> **Version:** 0.1.1
 
 ---
 
@@ -146,10 +146,10 @@ page.
 
 ### Windows
 
-File: `Valora_0.1.0_x64-setup.exe`
+File: `Valora_0.1.1_x64-setup.exe`
 
-1. Open the [Valora v0.1.0 release page](https://github.com/usrafaelmendes/valora/releases/tag/v0.1.0).
-2. Download `Valora_0.1.0_x64-setup.exe`.
+1. Open the [Valora v0.1.1 release page](https://github.com/usrafaelmendes/valora/releases/tag/v0.1.1).
+2. Download `Valora_0.1.1_x64-setup.exe`.
 3. Run the installer. It installs for the current user only, under
    `%LOCALAPPDATA%\Programs\Valora`, and does not require administrator privileges.
 4. Complete the installation.
@@ -171,14 +171,14 @@ Notes:
 
 ### Linux
 
-File: `Valora_0.1.0_amd64.deb`, intended for compatible Debian/Ubuntu systems.
+File: `Valora_0.1.1_amd64.deb`, intended for compatible Debian/Ubuntu systems.
 
-1. Download `Valora_0.1.0_amd64.deb` from the
-   [Valora v0.1.0 release page](https://github.com/usrafaelmendes/valora/releases/tag/v0.1.0).
+1. Download `Valora_0.1.1_amd64.deb` from the
+   [Valora v0.1.1 release page](https://github.com/usrafaelmendes/valora/releases/tag/v0.1.1).
 2. Install it from the download directory:
 
    ```bash
-   sudo dpkg -i Valora_0.1.0_amd64.deb
+   sudo dpkg -i Valora_0.1.1_amd64.deb
    ```
 
    If `dpkg` reports missing dependencies, resolve them with:
@@ -351,7 +351,7 @@ PostgreSQL. `npm run e2e` creates a temporary database, generates a random JWT s
 administrator password for the run, uses only fictitious data and drops the database at the end.
 Ports `8080` and `5173` must be free.
 
-Results for version 0.1.0:
+Results for version 0.1.1:
 
 | Suite | Result |
 |---|---|
@@ -362,11 +362,10 @@ Results for version 0.1.0:
 | Lint | passed |
 | Format check | passed |
 
-The installers of this release were also tested for installation, first launch, initial setup,
-login, closing and reopening, data persistence, recovery after a forced shutdown and uninstallation
-on Windows 11 x64. The same checks, including package removal, were run for the `.deb` package on
-WSL (Ubuntu 26.04). The final 0.1.0 installers differ from the tested builds only in the application
-icons and the logo on the sign-in screens.
+The 0.1.0 installers were tested for installation, first launch, initial setup, login, closing and
+reopening, data persistence, recovery after a forced shutdown and uninstallation on Windows 11 x64.
+The same checks, including package removal, were run for the `.deb` package on WSL (Ubuntu 26.04).
+Version 0.1.1 adds the Windows taskbar icon fix, which was verified on Windows 11.
 
 ---
 

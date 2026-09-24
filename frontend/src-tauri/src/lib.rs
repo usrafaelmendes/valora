@@ -21,6 +21,9 @@ pub fn run() {
   tauri::Builder::default()
     .manage(Estado(Mutex::new(None)))
     .setup(|app| {
+      if let Some(janela) = app.get_webview_window("main") {
+        plataforma::definir_icone_barra_tarefas(&janela);
+      }
       let Some(runtime) = Runtime::localizar(&app.path().resource_dir()?) else {
         return Ok(());
       };

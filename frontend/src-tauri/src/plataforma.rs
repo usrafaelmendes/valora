@@ -132,6 +132,17 @@ pub fn mostrar_erro(titulo: &str, mensagem: &str) {
   eprintln!("{titulo}: {mensagem}");
 }
 
+/// Windows: define o ícone grande da janela, usado pela barra de tarefas. O Tauri só define o
+/// ícone pequeno (barra de título); sem o grande, a barra de tarefas usa o ícone que o shell
+/// guardou em cache para o executável, que continua o antigo depois de uma atualização no mesmo
+/// caminho.
+pub fn definir_icone_barra_tarefas(_janela: &tauri::WebviewWindow) {
+  #[cfg(windows)]
+  if let Ok(hwnd) = _janela.hwnd() {
+    windows::definir_icone_grande(hwnd.0);
+  }
+}
+
 #[cfg(windows)]
 mod windows {
   use windows_sys::Win32::Foundation::{CloseHandle, HANDLE};
@@ -175,6 +186,32 @@ mod windows {
     fn drop(&mut self) {
       // SAFETY: handle criado por CreateJobObjectW e fechado uma única vez.
       unsafe { CloseHandle(self.0) };
+    }
+  }
+
+  /// Ícone do aplicativo embutido no executável pelo tauri-build (recurso 32512, `icons/icon.ico`),
+  /// no tamanho de ícone grande do sistema.
+  pub fn definir_icone_grande(janela: *mut core::ffi::c_void) {
+    use windows_sys::Win32::System::LibraryLoader::GetModuleHandleW;
+    use windows_sys::Win32::UI::WindowsAndMessaging::{
+      GetSystemMetrics, LoadImageW, SendMessageW, ICON_BIG, IMAGE_ICON, LR_DEFAULTCOLOR,
+      SM_CXICON, SM_CYICON, WM_SETICON,
+    };
+    const RECURSO_ICONE: usize = 32512;
+    // SAFETY: handle da janela válido; o recurso é identificado por número (MAKEINTRESOURCE) e o
+    // ícone carregado fica em uso pela janela até o fim do app.
+    unsafe {
+      let icone = LoadImageW(
+        GetModuleHandleW(std::ptr::null()),
+        RECURSO_ICONE as *const u16,
+        IMAGE_ICON,
+        GetSystemMetrics(SM_CXICON),
+        GetSystemMetrics(SM_CYICON),
+        LR_DEFAULTCOLOR,
+      );
+      if !icone.is_null() {
+        SendMessageW(janela, WM_SETICON, ICON_BIG as usize, icone as isize);
+      }
     }
   }
 
